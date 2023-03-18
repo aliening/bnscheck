@@ -94,12 +94,12 @@ function App() {
      }
      <div className="donation-placeholder">
        <div className="donation">
-           Donation <Badge dot>
+           {/* Donation <Badge dot>
            <a onClick={() => {
                copy('0xD784c2B6FB72e755D40c576cD63CB073D91bCcfA')
                message.success('copy success')
            }}>0xD784c2B6FB72e755D40c576cD63CB073D91bCcfA</a>
-       </Badge>
+       </Badge> */}
        </div>
      </div>
     </div>
