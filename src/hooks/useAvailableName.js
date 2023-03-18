@@ -7,6 +7,7 @@ export const registrars = {
 }
 
 const provider = new ethers.providers.JsonRpcProvider("https://ethereum.publicnode.com")
+
 const controllerContract = new ethers.Contract("0x7d311ccb3b4f5006a1215418bfc45961fc5609e4", [{
   "inputs": [
     {
