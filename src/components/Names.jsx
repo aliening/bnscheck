@@ -4,7 +4,6 @@ import usePage from "../hooks/usePage"
 import {Pagination, Spin, Tooltip} from 'antd';
 import {keccak256} from "js-sha3";
 import {BigNumber} from "ethers";
-import {useQuery} from "../hooks/useQuery.js";
 
 function getTokenId(name) {
   const namenode = '0x'+keccak256(`${name}`)
@@ -22,8 +21,8 @@ function Name({name, domain}) {
   const path = domain === "TWIT" ? "twit" : ""
   const tokenId = getTokenId(name)
   const nft = (registrars[domain]).toLowerCase()
-  const link = isAvailable ? `https://app.wens.domains/${path}?name=${name}` : isNotAvailable ? `https://nuwton.io/asset/EthereumPow/${nft}/${tokenId}` : '#';
-  const title = isAvailable ? 'Go To Register' : isNotAvailable ? 'Go to Nuwton' : 'Loading'
+  const link = isAvailable ? `https://app.bns.org/search/${name}` : isNotAvailable ? '' : '#';
+  const title = isAvailable ? 'Go To Register' : isNotAvailable ? '' : 'Loading'
   return <Spin spinning={nameStatus === "LOADING"} indicator={antIcon}>
     <Tooltip placement="bottomLeft" title={title}>
       <a className={`name ${color}`} href={link} target="_blank">

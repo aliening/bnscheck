@@ -33,7 +33,7 @@ function App() {
           get('app')
       ) ||
       "Search")
-  const [domain, setDomain] = useState(get('domain') || "TWIT" )
+  const [domain, setDomain] = useState(get('domain') || "BTC" )
   const [digits, setDigits] = useState(
       getCheckedParam(
           Object.keys(categories).map(item => categories[item]),
@@ -75,19 +75,13 @@ function App() {
     })
   }
 
-  const digitCategories = useMemo(() => {
-      return domain==='TWIT' ? omit(categories, ['animal','name']) : categories
-  }, [domain]);
-
     return (
     <div className="App">
       <Header>
-        <AppSelect app={app} setApp={handleSetApp}/>
       </Header>
       {
         app ==='Search' && <>
-            <DomainSelect domain={domain} setDomain={handleSetDomain}/>
-            <DigitsSelect domain={domain} digits={digits} setDigits={handleSetDigits} categories={digitCategories}/>
+            <DigitsSelect digits={digits} setDigits={handleSetDigits} categories={categories}/>
             <PatternSelect pattern={pattern} category={digits} setPattern={handleSetPattern}/>
             <Names digits={digits} size={100} domain={domain} type={pattern} />
         </>
